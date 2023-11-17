@@ -1,0 +1,248 @@
+﻿body {
+    height: 1000px;
+}
+
+td {
+    word-wrap: break-word;
+    max-width: 100px;
+}
+
+.my-table {
+    width: 90%;
+    margin-left: 20px;
+}
+
+#myy :hover {
+    cursor: pointer;
+}
+
+.navbar{
+}
+
+@media(min-width:1300px) {
+    input[type="checkbox"] {
+        width: 3%;
+    }
+
+    .my-input {
+        width: 50%;
+        margin-left: 400px;
+    }
+
+    .create-person-form {
+        width: 50%;
+        margin-left: 200px;
+    }
+
+        .create-person-form button {
+            margin-left: 200px;
+        }
+
+    .errors {
+        margin-left: 350px;
+        margin-top: 50px;
+    }
+}
+
+@media(min-width:636px) and (max-width:1300px) {
+    .create-person-form input,
+    .create-person-form label,
+    .create-person-form select,
+    .create-person-form textarea {
+        margin-left: 40px;
+        width: 60%;
+    }
+
+    .create-person-form button {
+        margin: 90px;
+    }
+
+    input[type="checkbox"] {
+        width: 2%;
+    }
+
+    #checkbox-pas {
+        margin-left: 20px;
+    }
+
+    .text-danger {
+        margin-left: 40px;
+    }
+
+    .navbar{
+    }
+}
+
+@media(min-width:1200px) and (max-width:1300px) {
+    .my-input {
+        width: 50%;
+        margin-left: 350px;
+    }
+
+    .span-error {
+        margin-left: 40px;
+    }
+}
+
+@media (min-width: 1008px) and (max-width:1200px) {
+    .my-input {
+        width: 60%;
+        margin-left: 250px;
+    }
+
+    .span-error {
+        margin-left: 40px;
+    }
+}
+
+@media(min-width:868px) and (max-width: 1008px) {
+    .my-input {
+        width: 60%;
+        margin-left: 200px;
+    }
+
+    .span-error {
+        margin-left: 40px;
+    }
+
+    input[type="checkbox"] {
+        width: 3%;
+    }
+}
+
+@media(min-width:819px) and (max-width:868px) {
+    .my-input {
+        width: 60%;
+        margin-left: 150px;
+    }
+
+    .span-error {
+        margin-left: 40px;
+    }
+
+    input[type="checkbox"] {
+        width: 3%;
+    }
+}
+
+@media(min-width:636px) and (max-width: 819px) {
+    .my-input {
+        width: 70%;
+        margin-left: 100px;
+    }
+
+    .span-error {
+        margin-left: 40px;
+    }
+
+    .btn-group {
+        width: 500px;
+    }
+
+    input[type="checkbox"] {
+        width: 3%;
+    }
+}
+
+@media(max-width: 636px) {
+    .my-input {
+        width: 90%;
+        margin-left: 20px;
+    }
+
+    .span-error {
+        margin-left: 10px;
+    }
+
+    .btn-group {
+        width: 500px;
+    }
+
+    .create-person-form input,
+    .create-person-form label,
+    .create-person-form select,
+    .create-person-form textarea {
+        margin-left: 10px;
+        width: 60%;
+    }
+
+    .create-person-form button {
+        margin: 50px;
+    }
+
+    #table-div {
+        margin-left: 54px;
+        width: 110%;
+    }
+
+    .navbar {
+        width: 141%;
+    }
+
+    #search-form {
+        margin-left: 60px;
+        width: 100%;
+    }
+
+    .error-page {
+        margin-left: 180px;
+    }
+
+    input[type="checkbox"] {
+        width: 4%;
+    }
+
+    #checkbox-pas {
+        margin-left: 0px;
+    }
+
+    .text-danger {
+        margin-left: 10px;
+    }
+}
+
+@media(max-width:410px) {
+    #table-div {
+        margin-left: 100px;
+        width: 110%;
+    }
+
+    .navbar {
+        width: 170%;
+    }
+
+    #search-form {
+        margin-left: 100px;
+        width: 110%;
+    }
+
+    .error-page {
+        margin-left: 270px;
+    }
+}
+
+.table-div {
+    width: 100%;
+}
+
+th {
+    white-space: nowrap;
+}
+
+body {
+    background-color: #ededed;
+}
+
+table td {
+    vertical-align: middle;
+}
+
+a {
+    color: #2aa7cc;
+    text-decoration: none;
+}
+
+    a:hover {
+        color: white;
+    }
+

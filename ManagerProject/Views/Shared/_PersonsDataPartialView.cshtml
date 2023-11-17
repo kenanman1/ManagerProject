@@ -1,0 +1,17 @@
+﻿@foreach (var person in Model)
+{
+    <tr class="table-success">
+        <td style="width:10%">@person.Name</td>
+        <td style="width:10%">@person.Surname</td>
+        <td style="width:25%">@person.Email</td>
+        <td style="width:5%">@person.Age</td>
+        <td style="width:30%">@person.Address</td>
+        <td style="width:10%">@person.Country</td>
+        <td>
+            <div class="btn-group btn-group-sm group-edit-delete">
+                <a asp-controller="person" asp-action="editperson" asp-route-id="@person.ID" class="btn btn-outline-primary" >Edit</a>
+                <a asp-controller="person" asp-action="deleteperson" asp-route-id="@person.ID" class="btn btn-outline-danger" >Delete</a>
+            </div>
+        </td>
+    </tr>
+}

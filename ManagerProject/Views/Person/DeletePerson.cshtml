@@ -1,0 +1,37 @@
+﻿@model PersonResponce
+@{
+    ViewBag.Title = "Delete Person";
+}
+@section BreadcrumbSection
+    {
+    <li class="breadcrumb-item active" aria-current="page">Persons</li>
+    <li class="breadcrumb-item active" aria-current="page">@ViewBag.Title</li>
+}
+<form class="create-person-form mt-5" method="post" asp-controller="person" asp-action="deleteperson">
+    <div class="row mb-3">
+        <label asp-for="Name" class="col-sm-3 col-form-label">Person Name</label>
+        <div class="col-sm-9">
+            <input class="form-control" asp-for="Name" readonly>
+        </div>
+    </div>
+    <div class="row mb-3 mt-5">
+        <label asp-for="Surname" class="col-sm-3 col-form-label">Surname</label>
+        <div class="col-sm-9">
+            <input class="form-control" asp-for="Surname" readonly>
+        </div>
+    </div>
+    <div class="row mb-3 mt-5">
+        <label asp-for="Email" class="col-sm-3 col-form-label">Email</label>
+        <div class="col-sm-9">
+            <input class="form-control" asp-for="Email" readonly>
+        </div>
+    </div>
+    <div class="row mb-3 mt-5">
+        <label asp-for="BirthDate" class="col-sm-3 col-form-label">Date of birth</label>
+        <div class="col-sm-9">
+            <input class="form-control" asp-for="BirthDate" readonly>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-danger mt-5">Delete</button>
+</form>
+

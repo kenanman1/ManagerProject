@@ -1,0 +1,53 @@
+﻿@model PersonAddRequest
+@{
+    ViewBag.Title = "Create Person";
+}
+@section BreadcrumbSection
+    {
+    <li class="breadcrumb-item active" aria-current="page">@ViewBag.Title</li>
+}
+<form class="create-person-form mt-5" method="post" asp-controller="person" asp-action="createperson">
+    <div class="row mb-3">
+        <label asp-for="Name" class="col-sm-3 col-form-label">Person Name</label>
+        <div class="col-sm-9">
+            <input class="form-control capitalize" asp-for="Name">
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row mb-3 mt-5">
+        <label asp-for="Surname" class="col-sm-3 col-form-label">Surname</label>
+        <div class="col-sm-9">
+            <input class="form-control capitalize" asp-for="Surname">
+        </div>
+    </div>
+    <div class="row mb-3 mt-5">
+        <label asp-for="Email" class="col-sm-3 col-form-label">Email</label>
+        <div class="col-sm-9">
+            <input class="form-control" asp-for="Email" >
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row mb-3 mt-5">
+        <label asp-for="BirthDate" class="col-sm-3 col-form-label">Date of birth</label>
+        <div class="col-sm-9">
+            <input class="form-control" asp-for="BirthDate" min="1900-12-12" max="2018-12-12">
+            <span asp-validation-for="BirthDate" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row mb-3 mt-5">
+        <label for="country-select" class="col-sm-3 col-form-label">Country</label>
+        <div class="col-sm-9">
+            <select class="form-select" id="country-select" asp-for="CountryId" asp-items="@ViewBag.Countries">
+                <option selected value="">Open this select menu</option>
+            </select>
+            <span asp-validation-for="CountryId" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row mb-3 mt-5">
+        <label for="Address" class="col-sm-3 col-form-label">Address</label>
+        <div class="col-sm-9">
+            <textarea asp-for="Address" class="form-control capitalize" rows="3"></textarea>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary mt-5">Create</button>
+</form>

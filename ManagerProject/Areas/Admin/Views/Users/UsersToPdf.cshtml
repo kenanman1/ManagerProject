@@ -1,0 +1,35 @@
+﻿@model List<ApplicationUser>
+@{
+    ViewBag.Title = "Persons";
+    Layout = null;
+}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="@("http://" + Context.Request.Host.ToString() + "/StyleSheet.css")" />
+
+<div class="row justify-content-center table-div" id="table-div">
+    <table class="table table-responsive table-bordered my-table table-striped" style="margin-right:200px; margin-left:-110px; margin-top:200px;">
+        <thead>
+            <tr class="table-primary">
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Times Created</th>
+                <th scope="col">Times Edited</th>
+                <th scope="col">Times Deleted</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var person in Model)
+            {
+                <tr class="table-success">
+                    <td style="width:10%">@person.PersonName</td>
+                    <td style="width:20%">@person.Email</td>
+                    <td style="width:10%">@person.TimesCreated</td>
+                    <td style="width:10%">@person.TimesEdited</td>
+                    <td style="width:10%">@person.TimesDeleted</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

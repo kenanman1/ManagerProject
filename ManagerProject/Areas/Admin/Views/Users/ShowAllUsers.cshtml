@@ -1,0 +1,46 @@
+﻿@model ICollection<ApplicationUser>
+@{
+    ViewBag.Title = "Users";
+}
+@section BreadcrumbSection
+    {
+    <li class="breadcrumb-item active" aria-current="page">@ViewBag.Title</li>
+}
+<div class="row justify-content-center table-div" id="table-div">
+    <table class="table table-responsive table-hover table-bordered mt-5 my-table table-striped">
+        <thead>
+            <tr class="table-primary">
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Times Created</th>
+                <th scope="col">Times Edited</th>
+                <th scope="col">Times Deleted</th>
+                <th scope="col">Options</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in Model)
+            {
+                <tr class="table-success">
+                    <td style="width:20%">@user.PersonName</td>
+                    <td style="width:30%">@user.Email</td>
+                    <td style="width:10%">@user.TimesCreated</td>
+                    <td style="width:10%">@user.TimesEdited</td>
+                    <td style="width:10%">@user.TimesDeleted</td>
+                    @if (user.Email != "admin@admin.com")
+                    {
+                        <td>
+                            <div class="btn-group btn-group-sm group-edit-delete">
+                                <a asp-controller="users" asp-action="deleteuser" asp-route-email="@user.Email" class="btn btn-outline-danger">Delete</a>
+                            </div>
+                        </td>
+                    }
+                    else
+                    {
+                        <td></td>
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
