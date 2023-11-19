@@ -39,7 +39,7 @@
                         </li>
                     }
                     <li class="nav-item">
-                        <a class="nav-link" asp-controller="user" asp-action="userprofile">@User.Identity?.Name</a>
+                        <a class="nav-link" asp-controller="user" asp-action="userprofile" asp-area="user">@User.Identity?.Name</a>
                     </li>
                     <li class="nav-item logout">
                         <a class="nav-link" href="/Account/Logout">Log out</a>

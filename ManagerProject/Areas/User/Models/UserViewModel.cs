@@ -1,4 +1,4 @@
-﻿namespace ManagerApp.Models;
+﻿namespace ManagerProject.Areas.User.Models;
 
 public class UserViewModel
 {

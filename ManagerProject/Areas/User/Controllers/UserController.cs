@@ -2,11 +2,12 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using ManagerApp.Models;
+using ManagerProject.Areas.User.Models;
 
-namespace ManagerApp.Controllers
+namespace ManagerProject.Areas.User.Controllers
 {
     [Route("[controller]")]
+    [Area("User")]
     [Authorize]
     public class UserController : Controller
     {
