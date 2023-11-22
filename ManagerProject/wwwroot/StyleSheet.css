@@ -16,9 +16,6 @@ td {
     cursor: pointer;
 }
 
-.navbar{
-}
-
 @media(min-width:1300px) {
     input[type="checkbox"] {
         width: 3%;
@@ -67,9 +64,6 @@ td {
 
     .text-danger {
         margin-left: 40px;
-    }
-
-    .navbar{
     }
 }
 

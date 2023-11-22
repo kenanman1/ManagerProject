@@ -17,10 +17,10 @@ namespace ManagerProject.Areas.User.Controllers
             _userManager = userManager;
         }
         [Route("[action]")]
-        public IActionResult UserProfile()
+        public async Task<IActionResult> UserProfile()
         {
-            var user = _userManager.FindByEmailAsync(User.Identity.Name);
-            UserViewModel userViewModel = new UserViewModel { Email = user.Result.Email, PersonName = user.Result.PersonName };
+            var user = await _userManager.FindByEmailAsync(User.Identity.Name);
+            UserViewModel userViewModel = new UserViewModel { Email = user.Email, PersonName = user.PersonName };
             return View(userViewModel);
         }
     }

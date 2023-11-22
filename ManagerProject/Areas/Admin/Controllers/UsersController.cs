@@ -1,10 +1,10 @@
 ﻿using Entities.IdentityEntities;
+using ManagerApp.Areas.Admin.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Rotativa.AspNetCore;
 using Rotativa.AspNetCore.Options;
-using ManagerApp.Areas.Admin.Models;
 
 namespace ManagerApp.Areas.Admin.Controllers;
 
