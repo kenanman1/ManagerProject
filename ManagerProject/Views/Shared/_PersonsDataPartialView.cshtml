@@ -9,8 +9,8 @@
         <td style="width:10%">@person.Country</td>
         <td>
             <div class="btn-group btn-group-sm group-edit-delete">
-                <a asp-controller="person" asp-action="editperson" asp-route-id="@person.ID" class="btn btn-outline-primary" >Edit</a>
-                <a asp-controller="person" asp-action="deleteperson" asp-route-id="@person.ID" class="btn btn-outline-danger" >Delete</a>
+                <a asp-controller="persons" asp-action="@nameof(PersonsController.EditPerson)" asp-route-id="@person.ID" class="btn btn-outline-primary">Edit</a>
+                <a asp-controller="persons" asp-action="@nameof(PersonsController.DeletePerson)" asp-route-id="@person.ID" class="btn btn-outline-danger">Delete</a>
             </div>
         </td>
     </tr>
