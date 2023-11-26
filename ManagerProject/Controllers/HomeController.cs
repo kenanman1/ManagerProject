@@ -16,7 +16,7 @@ public class HomeController : Controller
         }
         else
         {
-            return RedirectToAction(nameof(PersonsController.Index), "Persons");
+            return RedirectToAction(nameof(PersonController.Index), "Person");
         }
     }
 

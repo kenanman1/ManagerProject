@@ -10,7 +10,7 @@ public class ModelValidationActionFilter : ActionFilterAttribute
 {
     public override void OnActionExecuting(ActionExecutingContext context)
     {
-        var c = context.Controller as PersonsController;
+        var c = context.Controller as PersonController;
         if (!c.ModelState.IsValid)
         {
             context.Result = c.RedirectToAction(nameof(c.ShowAll));

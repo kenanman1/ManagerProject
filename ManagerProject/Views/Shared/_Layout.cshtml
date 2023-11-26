@@ -16,16 +16,16 @@
             <div class="navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav add">
                     <li class="nav-item">
-                        <a class="nav-link" asp-controller="persons" asp-action="@nameof(PersonsController.Index)">Главная</a>
+                        <a class="nav-link" asp-controller="person" asp-action="index">Главная</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" asp-controller="persons" asp-action="@nameof(PersonsController.ShowAll)">Persons</a>
+                        <a class="nav-link" asp-controller="person" asp-action="showall">Persons</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" asp-controller="persons" asp-action="@nameof(PersonsController.CreatePerson)">Create Person</a>
+                        <a class="nav-link" asp-controller="person" asp-action="createperson">Create Person</a>
                     </li>
                     <li>
-                        <a class="nav-link" asp-controller="persons" asp-action="@nameof(PersonsController.PersonsToPdf)">Download as PDF</a>
+                        <a class="nav-link" asp-controller="person" asp-action="personstopdf">Download as PDF</a>
                     </li>
                 </ul>
             </div>
@@ -42,16 +42,16 @@
                         <a class="nav-link" asp-controller="user" asp-action="userprofile" asp-area="user">@User.Identity?.Name</a>
                     </li>
                     <li class="nav-item logout">
-                        <a class="nav-link" asp-controller="account" asp-action="logout">Log out</a>
+                        <a class="nav-link" href="/Account/Logout">Log out</a>
                     </li>
                 }
                 else
                 {
                     <li class="nav-item registration-link">
-                        <a class="nav-link" asp-controller="account" asp-action="@nameof(AccountController.Registration)">Registration</a>
+                        <a class="nav-link" href="/account/registration">Registration</a>
                     </li>
                     <li class="nav-item login-link">
-                        <a class="nav-link" asp-controller="account" asp-action="@nameof(AccountController.Login)">Log in</a>
+                        <a class="nav-link" href="/account/login">Log in</a>
                     </li>
                 }
             </ul>
@@ -59,7 +59,7 @@
     </nav>
     <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb" class="m-3">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a asp-controller="persons" asp-action="@nameof(PersonsController.Index)">Home</a></li>
+            <li class="breadcrumb-item"><a href="/Index">Home</a></li>
             @RenderSection("BreadcrumbSection", false)
         </ol>
     </nav>
