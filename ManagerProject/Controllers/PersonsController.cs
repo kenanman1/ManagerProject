@@ -189,15 +189,4 @@ public class PersonsController : Controller
             PageOrientation = Orientation.Portrait,
         };
     }
-
-    [HttpGet("keklol")]
-    public async Task<IActionResult> Kek()
-    {
-        HttpClient client = new HttpClient();
-        var city = new { Name = "Hello" };
-        HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, "https://localhost:7222/api/citiesapi") { Method = HttpMethod.Post };
-        request.Content = new StringContent(JsonSerializer.Serialize(city), Encoding.UTF8, "application/json");
-        HttpResponseMessage response = await client.SendAsync(request);
-        return Ok(response.IsSuccessStatusCode);
-    }
 }
