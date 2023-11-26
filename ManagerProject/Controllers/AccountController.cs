@@ -57,7 +57,7 @@ public class AccountController : Controller
             }
             await _userManager.AddToRoleAsync(user, "User");
             await _signInManager.SignInAsync(user, false);
-            return RedirectToAction(nameof(PersonController.Index), "Person");
+            return RedirectToAction(nameof(PersonsController.Index), "Persons");
         }
         else
             return View();
@@ -87,7 +87,7 @@ public class AccountController : Controller
                 if (!string.IsNullOrEmpty(ReturnUrl) && Url.IsLocalUrl(ReturnUrl))
                     return LocalRedirect(ReturnUrl);
 
-                return RedirectToAction(nameof(PersonController.Index), "Person");
+                return RedirectToAction(nameof(PersonsController.Index), "Persons");
             }
             else
                 ModelState.AddModelError("Email", "Incorrect email or password.");
@@ -101,7 +101,7 @@ public class AccountController : Controller
     public async Task<IActionResult> Logout()
     {
         await _signInManager.SignOutAsync();
-        return RedirectToAction(nameof(PersonController.Index), "Person");
+        return RedirectToAction(nameof(PersonsController.Index), "Persons");
     }
 
     [HttpGet]

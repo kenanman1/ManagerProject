@@ -6,7 +6,7 @@
     {
     <li class="breadcrumb-item active" aria-current="page">@ViewBag.Title</li>
 }
-<form class="create-person-form mt-5" method="post" asp-controller="person" asp-action="createperson">
+<form class="create-person-form mt-5" method="post" asp-controller="persons" asp-action="@nameof(PersonsController.CreatePerson)">
     <div class="row mb-3">
         <label asp-for="Name" class="col-sm-3 col-form-label">Person Name</label>
         <div class="col-sm-9">

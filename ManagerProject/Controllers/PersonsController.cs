@@ -6,19 +6,21 @@ using Rotativa.AspNetCore;
 using Rotativa.AspNetCore.Options;
 using Services;
 using Services.DTO;
+using System.Text;
 using System.Text.Json;
 
 namespace ManagerApp.Controllers;
 
+[Route("[controller]")]
 [ModelValidationActionFilter]
 [Authorize]
-public class PersonController : Controller
+public class PersonsController : Controller
 {
     private ICountriesService _countriesService;
     private IPersonService _personService;
-    private ILogger<PersonController> _logger;
+    private ILogger<PersonsController> _logger;
     private IUsersActivityService _userService;
-    public PersonController(ICountriesService countriesService, IPersonService personService, ILogger<PersonController> logger, IUsersActivityService userService)
+    public PersonsController(ICountriesService countriesService, IPersonService personService, ILogger<PersonsController> logger, IUsersActivityService userService)
     {
         _countriesService = countriesService;
         _personService = personService;
@@ -101,7 +103,7 @@ public class PersonController : Controller
 
         if (existEmail)
         {
-            ModelState.AddModelError("Email", "This email address already exists");
+            ModelState.AddModelError(nameof(PersonAddRequest.Email), "This email address already exists");
             List<CountryResponce> countries = await _countriesService.GetAllCountries();
             ViewBag.Countries = countries.Select(x => new SelectListItem { Text = x.Name, Value = x.Id.ToString() });
             return View();
@@ -144,7 +146,7 @@ public class PersonController : Controller
 
         if (existEmail)
         {
-            ModelState.AddModelError("Email", "This email address already exists");
+            ModelState.AddModelError(nameof(PersonUpdateRequest.Email), "This email address already exists");
             List<CountryResponce> countries = await _countriesService.GetAllCountries();
             ViewBag.Countries = countries.Select(x => new SelectListItem { Text = x.Name, Value = x.Id.ToString() });
             return View(person);
@@ -180,11 +182,22 @@ public class PersonController : Controller
     public async Task<IActionResult> PersonsToPdf()
     {
         List<PersonResponce> people = await _personService.GetAllPersons();
-        return new ViewAsPdf("PersonsToPdf", people)
+        return new ViewAsPdf(people)
         {
             FileName = "AllPersons.pdf",
             PageSize = Size.A4,
             PageOrientation = Orientation.Portrait,
         };
+    }
+
+    [HttpGet("keklol")]
+    public async Task<IActionResult> Kek()
+    {
+        HttpClient client = new HttpClient();
+        var city = new { Name = "Hello" };
+        HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, "https://localhost:7222/api/citiesapi") { Method = HttpMethod.Post };
+        request.Content = new StringContent(JsonSerializer.Serialize(city), Encoding.UTF8, "application/json");
+        HttpResponseMessage response = await client.SendAsync(request);
+        return Ok(response.IsSuccessStatusCode);
     }
 }

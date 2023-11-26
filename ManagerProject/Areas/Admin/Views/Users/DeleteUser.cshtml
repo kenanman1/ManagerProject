@@ -7,7 +7,7 @@
     <li class="breadcrumb-item active" aria-current="page">Users</li>
     <li class="breadcrumb-item active" aria-current="page">@ViewBag.Title</li>
 }
-<form class="create-person-form mt-5" method="post" asp-controller="users" asp-action="deleteuser">
+<form class="create-person-form mt-5" method="post" asp-controller="users" asp-action="@nameof(UsersController.DeleteUser)">
     <div class="row mb-3">
         <label asp-for="PersonName" class="col-sm-3 col-form-label">User Name</label>
         <div class="col-sm-9">

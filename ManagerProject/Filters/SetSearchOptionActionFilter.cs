@@ -12,7 +12,7 @@ public class SetSearchOptionActionFilter : ActionFilterAttribute
 {
     public override void OnActionExecuting(ActionExecutingContext context)
     {
-        var con = context.Controller as PersonController;
+        var con = context.Controller as PersonsController;
         var searchFilter = context.ActionArguments["searchFilter"];
         var searchText = context.ActionArguments["searchText"];
 
