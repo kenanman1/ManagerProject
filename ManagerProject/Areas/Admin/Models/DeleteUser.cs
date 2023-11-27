@@ -1,4 +1,4 @@
-﻿namespace ManagerApp.Areas.Admin.Models;
+﻿namespace ManagerProject.Areas.Admin.Models;
 
 public class DeleteUser
 {

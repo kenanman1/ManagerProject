@@ -6,10 +6,9 @@ using Rotativa.AspNetCore;
 using Rotativa.AspNetCore.Options;
 using Services;
 using Services.DTO;
-using System.Text;
 using System.Text.Json;
 
-namespace ManagerApp.Controllers;
+namespace ManagerProject.Controllers;
 
 [Route("[controller]")]
 [ModelValidationActionFilter]

@@ -25,13 +25,13 @@
             </div>
             <ul class="navbar-nav add2">
                 <li class="nav-item">
-                    <a class="nav-link" href="/Index">User panel</a>
+                    <a class="nav-link" asp-controller="persons" asp-action="@nameof(PersonsController.Index)" asp-area="">User panel</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">@User.Identity?.Name</a>
                 </li>
                 <li class="nav-item logout">
-                    <a class="nav-link" href="/Account/Logout">Log out</a>
+                    <a class="nav-link" asp-controller="account" asp-action="@nameof(AccountController.Logout)" asp-area="">Log out</a>
                 </li>
 
             </ul>
@@ -39,7 +39,7 @@
     </nav>
     <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb" class="m-3">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="/Index">Home</a></li>
+            <li class="breadcrumb-item"><a asp-controller="home" asp-action="@nameof(ManagerProject.Areas.Admin.Controllers.HomeController.Index)">Home</a></li>
             @RenderSection("BreadcrumbSection", false)
         </ol>
     </nav>

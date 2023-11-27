@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
 
-namespace ManagerApp.Models;
+namespace ManagerProject.Models;
 
 public class RegisterViewModel
 {
@@ -23,5 +23,5 @@ public class RegisterViewModel
     public string ConfirmPassword { get; set; }
 
     [Required]
-    public string Name { get; set;}
+    public string Name { get; set; }
 }

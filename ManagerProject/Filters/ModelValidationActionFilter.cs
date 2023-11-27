@@ -1,5 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc.Filters;
-using ManagerApp.Controllers;
+﻿using ManagerProject.Controllers;
+using Microsoft.AspNetCore.Mvc.Filters;
 
 namespace ManagerApp.Filters;
 

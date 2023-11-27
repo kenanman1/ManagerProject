@@ -2,7 +2,8 @@
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ManagerApp.Controllers;
+namespace ManagerProject.Controllers;
+
 
 [AllowAnonymous]
 public class HomeController : Controller
@@ -10,7 +11,7 @@ public class HomeController : Controller
     [Route("/Error")]
     public IActionResult Error()
     {
-        if(HttpContext.Features.Get<IExceptionHandlerFeature>() != null)
+        if (HttpContext.Features.Get<IExceptionHandlerFeature>() != null)
         {
             return View();
         }

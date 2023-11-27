@@ -1,12 +1,13 @@
 ﻿using Entities.IdentityEntities;
-using ManagerApp.Areas.Admin.Models;
+using ManagerProject.Areas.Admin.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Rotativa.AspNetCore;
 using Rotativa.AspNetCore.Options;
+using Rotativa.AspNetCore;
 
-namespace ManagerApp.Areas.Admin.Controllers;
+namespace ManagerProject.Areas.Admin.Controllers;
+
 
 [Area("Admin")]
 [Route("[area]")]

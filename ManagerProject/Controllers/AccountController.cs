@@ -1,10 +1,11 @@
 ﻿using Entities.IdentityEntities;
+using ManagerProject.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using ManagerApp.Models;
 
-namespace ManagerApp.Controllers;
+namespace ManagerProject.Controllers;
+
 
 [Route("[controller]")]
 public class AccountController : Controller

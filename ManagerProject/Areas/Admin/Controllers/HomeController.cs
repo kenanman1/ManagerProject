@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ManagerApp.Areas.Admin.Controllers;
+namespace ManagerProject.Areas.Admin.Controllers;
 
 [Area("Admin")]
 [Route("[area]")]

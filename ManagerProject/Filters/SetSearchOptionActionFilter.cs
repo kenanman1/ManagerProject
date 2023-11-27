@@ -1,7 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc.Filters;
+﻿using ManagerProject.Controllers;
+using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Services.DTO;
-using ManagerApp.Controllers;
 
 namespace ManagerApp.Filters;
 
