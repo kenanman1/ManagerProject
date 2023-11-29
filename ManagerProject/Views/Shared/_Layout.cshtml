@@ -35,14 +35,14 @@
                     @if (User.IsInRole("Admin"))
                     {
                         <li class="nav-item">
-                            <a class="nav-link" asp-controller="home" asp-action="index" asp-area="admin">Admin Panel</a>
+                            <a class="nav-link" asp-controller="home" asp-action="@nameof(ManagerProject.Areas.Admin.Controllers.HomeController.Index)" asp-area="admin">Admin Panel</a>
                         </li>
                     }
                     <li class="nav-item">
-                        <a class="nav-link" asp-controller="user" asp-action="userprofile" asp-area="user">@User.Identity?.Name</a>
+                        <a class="nav-link" asp-controller="user" asp-action="@nameof(ManagerProject.Areas.User.Controllers.UserController.UserProfile)" asp-area="user">@User.Identity?.Name</a>
                     </li>
                     <li class="nav-item logout">
-                        <a class="nav-link" asp-controller="account" asp-action="logout">Log out</a>
+                        <a class="nav-link" asp-controller="account" asp-action="@nameof(AccountController.Logout)">Log out</a>
                     </li>
                 }
                 else

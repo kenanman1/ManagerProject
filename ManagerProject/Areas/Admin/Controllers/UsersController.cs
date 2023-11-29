@@ -3,8 +3,9 @@ using ManagerProject.Areas.Admin.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Rotativa.AspNetCore.Options;
+using Microsoft.EntityFrameworkCore;
 using Rotativa.AspNetCore;
+using Rotativa.AspNetCore.Options;
 
 namespace ManagerProject.Areas.Admin.Controllers;
 
@@ -21,16 +22,16 @@ public class UsersController : Controller
     }
 
     [Route("[action]")]
-    public IActionResult ShowAllUsers()
+    public async Task<IActionResult> ShowAllUsers()
     {
-        return View(_userManager.Users.ToList());
+        return View(await _userManager.Users.ToListAsync());
     }
 
     [Route("[action]/{email}")]
     [HttpGet]
-    public IActionResult DeleteUser(string email)
+    public async Task<IActionResult> DeleteUser(string email)
     {
-        ApplicationUser user = _userManager.Users.FirstOrDefault(u => u.Email == email);
+        ApplicationUser user = await _userManager.Users.FirstOrDefaultAsync(u => u.Email == email);
         DeleteUser deleteUser = new DeleteUser { Email = user.Email, PersonName = user.PersonName };
         return View(deleteUser);
     }
@@ -48,9 +49,9 @@ public class UsersController : Controller
     }
 
     [Route("[action]")]
-    public IActionResult UsersToPdf()
+    public async Task<IActionResult> UsersToPdf()
     {
-        var users = _userManager.Users.ToList();
+        var users = await _userManager.Users.ToListAsync();
 
         return new ViewAsPdf(users)
         {
