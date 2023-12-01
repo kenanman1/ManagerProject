@@ -9,7 +9,6 @@ using Rotativa.AspNetCore.Options;
 
 namespace ManagerProject.Areas.Admin.Controllers;
 
-
 [Area("Admin")]
 [Route("[area]")]
 [Authorize(Roles = "Admin")]

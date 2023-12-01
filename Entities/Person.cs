@@ -12,6 +12,7 @@ public class Person
     public Guid CountryId { get; set; }
     public DateTime? BirthDate { get; set; }
     public string Email { get; set; }
+
     [MaxLength(200)]
     public string? Address { get; set; }
 }

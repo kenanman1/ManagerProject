@@ -8,13 +8,13 @@ namespace Services;
 
 public class PersonService : IPersonService
 {
-    private IPersonRepository _dbContext;
+    private IPersonRepository _personRepository;
     private ILogger<PersonService> _logger;
 
     public PersonService(IPersonRepository dbContext, ILogger<PersonService> logger)
     {
         _logger = logger;
-        _dbContext = dbContext;
+        _personRepository = dbContext;
     }
 
     public async Task<PersonResponce> AddPerson(PersonAddRequest request)
@@ -31,7 +31,7 @@ public class PersonService : IPersonService
 
         Person person = new Person() { Id = Guid.NewGuid(), Name = request.Name, Surname = request.Surname, Address = request.Address, BirthDate = request?.BirthDate, Email = request.Email, CountryId = request.CountryId };
 
-        await _dbContext.AddPerson(person);
+        await _personRepository.AddPerson(person);
 
         return PersonResponce.ToPersonResponce(person);
     }
@@ -39,7 +39,7 @@ public class PersonService : IPersonService
     public async Task<List<PersonResponce>> GetAllPersons()
     {
         _logger.LogInformation("GetAllPersons called");
-        List<Person> people = await _dbContext.GetAllPersons();
+        List<Person> people = await _personRepository.GetAllPersons();
         List<PersonResponce> responces = new();
         foreach (var item in people)
         {
@@ -51,27 +51,18 @@ public class PersonService : IPersonService
     public async Task<List<PersonResponce>> GetFilteredByAny(string filter, string? obj)
     {
         List<PersonResponce> all = await GetAllPersons();
+        if(obj == null)
+            return all;
+
         switch (filter)
         {
             case nameof(PersonResponce.Name):
-                if (obj == null)
-                    return all;
-                else
                     return all.Where(x => x.Name.Contains(obj, StringComparison.OrdinalIgnoreCase)).ToList();
             case nameof(PersonResponce.Surname):
-                if (obj == null)
-                    return all;
-                else
                     return all.Where(x => x.Surname != null).Where(x => x.Surname.Contains(obj, StringComparison.OrdinalIgnoreCase)).ToList();
             case nameof(PersonResponce.Email):
-                if (obj == null)
-                    return all;
-                else
                     return all.Where(x => x.Email != null).Where(x => x.Email.Contains(obj, StringComparison.OrdinalIgnoreCase)).ToList();
             case nameof(PersonResponce.Address):
-                if (obj == null)
-                    return all;
-                else
                     return all.Where(x => x.Address != null).Where(x => x.Address.Contains(obj, StringComparison.OrdinalIgnoreCase)).ToList();
             default:
                 return all;
@@ -80,7 +71,7 @@ public class PersonService : IPersonService
 
     public async Task<PersonResponce?> GetPerson(Guid id)
     {
-        Person? person = await _dbContext.GetByID(id);
+        Person? person = await _personRepository.GetByID(id);
         if (person != null)
             return PersonResponce.ToPersonResponce(person);
         else
@@ -110,7 +101,7 @@ public class PersonService : IPersonService
 
     public async Task<PersonResponce> UpdatePerson(PersonUpdateRequest request)
     {
-        Person? person = await _dbContext.GetByID(request.Id);
+        Person? person = await _personRepository.GetByID(request.Id);
         if (person != null)
         {
             person.Name = request.Name;
@@ -119,7 +110,7 @@ public class PersonService : IPersonService
             person.BirthDate = request.BirthDate;
             person.Address = request.Address;
             person.CountryId = request.CountryId;
-            await _dbContext.UpdatePerson(person);
+            await _personRepository.UpdatePerson(person);
             return PersonResponce.ToPersonResponce(person);
         }
         else
@@ -128,10 +119,10 @@ public class PersonService : IPersonService
 
     public async Task<bool> DeletePerson(Guid id)
     {
-        Person? person = await _dbContext.GetByID(id);
+        Person? person = await _personRepository.GetByID(id);
         if (person != null)
         {
-            await _dbContext.DeletePerson(person);
+            await _personRepository.DeletePerson(person);
             return true;
         }
         else
@@ -140,7 +131,6 @@ public class PersonService : IPersonService
 
     public async Task<bool> CheckEmailExists(string email)
     {
-        return await _dbContext.EmailExist(email);
+        return await _personRepository.EmailExist(email);
     }
 }
-

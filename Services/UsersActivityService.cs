@@ -10,6 +10,7 @@ public class UsersActivityService : IUsersActivityService
     {
         _userManager = userManager;
     }
+
     public async Task UpdateTimesCreated(string userEmail)
     {
         var user = await _userManager.FindByEmailAsync(userEmail);

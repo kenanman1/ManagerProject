@@ -6,21 +6,21 @@ namespace Services;
 
 public class CountryService : ICountriesService
 {
-    private ICountryRepository _dbContext;
+    private ICountryRepository _countryRepository;
     public CountryService(ICountryRepository countryRepository)
     {
-        _dbContext = countryRepository;
+        _countryRepository = countryRepository;
     }
 
     public async Task<CountryResponce> AddCountry(CountryAddRequest request)
     {
         if (request != null)
         {
-            if (await _dbContext.CountryExist(request.Name))
+            if (await _countryRepository.CountryExist(request.Name))
                 throw new ArgumentException(nameof(request.Name));
 
             Country country = new Country { Id = Guid.NewGuid(), Name = request.Name };
-            await _dbContext.AddCountry(country);
+            await _countryRepository.AddCountry(country);
             return new CountryResponce { Id = country.Id, Name = country.Name };
         }
         else
@@ -29,13 +29,13 @@ public class CountryService : ICountriesService
 
     public async Task<List<CountryResponce>> GetAllCountries()
     {
-        List<Country> countries = await _dbContext.GetAllCountries();
+        List<Country> countries = await _countryRepository.GetAllCountries();
         return countries.Select(x => new CountryResponce { Id = x.Id, Name = x.Name }).ToList();
     }
 
     public async Task<CountryResponce> GetByID(Guid guid)
     {
-        Country? country = await _dbContext.GetByID(guid);
+        Country? country = await _countryRepository.GetByID(guid);
         if (country != null)
             return new CountryResponce { Id = country.Id, Name = country.Name };
         else

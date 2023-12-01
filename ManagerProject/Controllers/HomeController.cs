@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ManagerProject.Controllers;
 
-
 [AllowAnonymous]
 public class HomeController : Controller
 {
@@ -12,13 +11,9 @@ public class HomeController : Controller
     public IActionResult Error()
     {
         if (HttpContext.Features.Get<IExceptionHandlerFeature>() != null)
-        {
             return View();
-        }
         else
-        {
             return RedirectToAction(nameof(PersonsController.Index), "Persons");
-        }
     }
 
     [Route("/Accessdenied")]
